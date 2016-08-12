@@ -12,7 +12,7 @@
 |width|`200`|寬度|
 |height|`200`|高度|
 |dir|`"top"`|翻轉方向,值(left或right或top或bottom)|
-|reverse|`false`|相反順序,值(true或false)|
+|reverse|`false`|順序反轉,值(true或false)|
 |className|`""`|風格|
 ### 默認風格
 該組件會自動嵌入了一些必要的風格。
