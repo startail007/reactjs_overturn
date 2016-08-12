@@ -11,8 +11,8 @@
 |difference|`0.1`|動作間格時間|
 |width|`200`|寬度|
 |height|`200`|高度|
-|dir|`"right"`|方向,值(left或right或top或bottom)|
-|clockwise|`true`|順時鐘翻轉,值(true或false)|
+|dir|`"top"`|翻轉方向,值(left或right或top或bottom)|
+|reverse|`false`|相反順序,值(true或false)|
 |className|`""`|風格|
 ### 默認風格
 該組件會自動嵌入了一些必要的風格。
@@ -59,7 +59,7 @@
 ```
 ### 設定參考
 ```javascript
-<Overturn dir = "right" index = {1} width = {600} height = {300} duration = {0.3} difference = {0.05} count = {20} src = {["image01.jpg","image02.jpg","image03.jpg"]} />
+<Overturn dir = "top" reverse = {true} index = {1} width = {600} height = {300} duration = {0.3} difference = {0.05} count = {20} src = {["image01.jpg","image02.jpg","image03.jpg"]} />
 ```
 ### 許可
 MIT
