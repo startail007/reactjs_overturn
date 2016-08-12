@@ -8,8 +8,8 @@ var Overturn = React.createClass({
             difference:this.props.difference!=undefined?this.props.difference:0.1,
             width:this.props.width!=undefined?this.props.width:200,
             height:this.props.height!=undefined?this.props.height:200,
-            dir:this.props.dir!=undefined?this.props.dir:"right",
-            clockwise:this.props.clockwise!=undefined?this.props.clockwise:true,
+            dir:this.props.dir!=undefined?this.props.dir:"top",
+            reverse:this.props.reverse!=undefined?this.props.reverse:false,
             className:this.props.className!=undefined?this.props.className:""
         };
     },
@@ -91,19 +91,17 @@ var Overturn = React.createClass({
         var height = this.state.height;
         var duration = this.state.duration; 
         var dir = this.state.dir;
-        var clockwise = this.state.clockwise;
+        var reverse = this.state.reverse;
         for(var i=0;i<count;i++){
-            var ii;
-            if(dir=="right" || dir=="bottom"){
-                ii = i;
-            }else if(dir=="left" || dir=="top"){
-                ii = count-1-i;
-            }
+            var ii = reverse?count-1-i:i;
             var transition = this.state.mouseover ? "transform " + duration + "s " + (ii*this.state.difference) +"s":"";        
-            var angle = this.state.mouseover ? (clockwise?1:-1)*90:0;
-            if(dir=="right" || dir=="left"){
+            var angle = this.state.mouseover ? 90:0;
+            if(dir=="bottom" || dir=="left"){
+                angle*=-1;
+            }
+            if(dir=="top" || dir=="bottom"){
                 box[i]=this.createBoxV(width/count,height,i,count,angle,transition);
-            }else if(dir=="bottom" || dir=="top"){
+            }else if(dir=="left" || dir=="right"){
                 box[i]=this.createBoxH(width,height/count,i,count,angle,transition);
             }
         }
@@ -117,24 +115,24 @@ var Overturn = React.createClass({
     }
 });
 ReactDOM.render(
-    <Overturn dir = "right" src = {["image01.jpg","image02.jpg","image03.jpg"]} />,
+    <Overturn dir = "top" src = {["image01.jpg","image02.jpg","image03.jpg"]} />,
     document.getElementById('example01_0')
 );
 ReactDOM.render(
-    <Overturn dir = "bottom" src = {["image01.jpg","image02.jpg","image03.jpg"]} />,
+    <Overturn dir = "right" src = {["image01.jpg","image02.jpg","image03.jpg"]} />,
     document.getElementById('example01_1')
 );
 ReactDOM.render(
-    <Overturn dir = "left" src = {["image01.jpg","image02.jpg","image03.jpg"]} />,
+    <Overturn dir = "bottom" src = {["image01.jpg","image02.jpg","image03.jpg"]} />,
     document.getElementById('example01_2')
 );
 ReactDOM.render(
-    <Overturn dir = "top" src = {["image01.jpg","image02.jpg","image03.jpg"]} />,
+    <Overturn dir = "left" src = {["image01.jpg","image02.jpg","image03.jpg"]} />,
     document.getElementById('example01_3')
 );
 
 ReactDOM.render(
-    <Overturn className = {"Overturn02"} index = {1} width = {400} height = {200} duration = {0.3} difference = {0.05} count = {20} src = {["image01.jpg","image02.jpg","image03.jpg"]} />,
+    <Overturn className = {"Overturn02"} reverse = {true} index = {1} width = {400} height = {200} duration = {0.3} difference = {0.05} count = {20} src = {["image01.jpg","image02.jpg","image03.jpg"]} />,
     document.getElementById('example02')
 );
 
