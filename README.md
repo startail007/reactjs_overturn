@@ -1,7 +1,7 @@
 3D翻轉換圖功能(overturn)
 =========================
 ### 演示
-[線上觀看](http://virtools.github.io/reactjs_overturn/v1/index.html)
+[線上觀看](http://virtools.github.io/reactjs_overturn/v2/index.html)
 ### 設置
 |設置|默認值|描述|
 |---|---|---|
@@ -14,6 +14,7 @@
 |dir|`"top"`|翻轉方向,值(left或right或top或bottom)|
 |reverse|`false`|順序反轉,值(true或false)|
 |className|`""`|風格|
+|ImageData|`[]`|圖片資料|
 ### 默認風格
 該組件會自動嵌入了一些必要的風格。
 ```css
@@ -57,9 +58,23 @@
     background-color: rgb(54, 54, 54);
 }
 ```
-### 設定參考
+### 例
 ```javascript
-<Overturn dir = "top" reverse = {true} index = {1} width = {600} height = {300} duration = {0.3} difference = {0.05} count = {20} src = {["image01.jpg","image02.jpg","image03.jpg"]} />
+var ImageData = [
+    {src:"Image001.jpg",
+    rate:900 / 280,
+    contain:false},
+    {src:"Image02.jpg",
+    rate:300 / 300,
+    contain:true},
+    {src:"Image03.jpg",
+    rate:300 / 300,
+    contain:true},
+]
+ReactDOM.render(
+    <Overturn dir = "top" className = {"Overturn02"} reverse = {true} index = {0}  duration = {1} difference = {0.1} count = {10} ImageData = {ImageData}/>,
+    document.getElementById('example02')
+);
 ```
 ### 許可
 MIT
