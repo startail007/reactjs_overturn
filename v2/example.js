@@ -176,10 +176,10 @@ var ImageData = [
     {src:"Image001.jpg",
     rate:900 / 280,
     contain:false},
-    {src:"Image02.jpg",
+    {src:"image02.jpg",
     rate:300 / 300,
     contain:true},
-    {src:"Image03.jpg",
+    {src:"image03.jpg",
     rate:300 / 300,
     contain:true},
 ]
